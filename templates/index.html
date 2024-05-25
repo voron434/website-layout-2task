@@ -93,10 +93,10 @@
                     {% else %}
                       <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
                     {% endif %}
-                    <ul class="thumb-info">
-                      <li><a href="#"><i class="ti-user"></i>{{fresh_author}}</a></li>
+                    <ul class="thumb-info" style="max-width: 550px;">
+                      <li><a href="#"><i class="ti-user"></i>{{fresh_post.author}}</a></li>
                       <li><a href="#"><i class="ti-notepad"></i>{{fresh_post.published_at}}</a></li>
-                      <li><a href="#"><i class="ti-themify-favicon"></i>{{fresh_post.comments_amount}}</a></li>
+                      <li><a href="#"><i class="ti-themify-favicon"></i>{{fresh_post.comments_amount}} comments</a></li>
                     </ul>
                   </div>
                   <div class="details mt-20">
