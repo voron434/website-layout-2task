@@ -72,7 +72,7 @@
                     {% endif %}
                   </div>
                   <div class="blog__slide__content">
-                    <h3><a href="#">{{post.title}}</a></h3>
+                    <h3><a href="{% url 'post_detail' slug=post.slug %}">{{post.title}}</a></h3>
                     <p>{{post.published_at}}</p>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                   <div class="details mt-20">
                     <h3>{{fresh_post.title}}</h3>
                     <p>{{fresh_post.text|truncatechars:200 }}</p>
-                    <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
+                    <a class="button" href="{% url 'post_detail' slug=fresh_post.slug %}">Read More <i class="ti-arrow-right"></i></a>
                   </div>
                 </div>
               {% endfor %}
