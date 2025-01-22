@@ -9,13 +9,9 @@
     <title>Sensive Blog - Home</title>
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
 
-    <link rel="stylesheet" href="{% static 'styles.css/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.min.css' %}">
   </head>
   <body>
-<<<<<<< HEAD
-
-=======
->>>>>>> 58629bfdb7236007d73cafaaeea231694dc205f7
     <!--================Header Menu Area =================-->
     <header class="header_area">
       <div class="main_menu">
@@ -52,7 +48,7 @@
       <section class="mb-30px">
         <div class="container">
           <div class="hero-banner">
-            <div class="hero-banner__content" src="{% static 'img/banner/hero-banner.png' %}" type="image/png">
+            <div class="hero-banner__content">
               <h3>Tours &amp; Travels</h3>
               <h1>Amazing Places on earth</h1>
               <h4>December 12, 2018</h4>
@@ -64,65 +60,17 @@
 
       <!--================ Blog slider start =================-->
       <section>
-<<<<<<< HEAD
-        {% for post in most_popular_posts  %}
         <div class="container">
-        {% endfor %}
-=======
-        <div class="container">
->>>>>>> 58629bfdb7236007d73cafaaeea231694dc205f7
           <div class="d-flex">
+            {% for post in most_popular_posts %}
             <div class="flex-fill" style="margin-right: 30px;">
               <div class="card blog__slide text-center">
                 <div class="blog__slide__img">
-<<<<<<< HEAD
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/image_are-you-preparing-your-kids-for-the-real-world.jpg' %}" alt="">
-                </div>
-
-                <div class="blog__slide__content">
-                  <h3><a href="#">{{ post.title }}</a></h3>
-                  <p>{{ post.published_at }}</p>
-=======
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide1.png' %}" alt="">
-                </div>
-                <div class="blog__slide__content">
-                  <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                  <p>2 days ago</p>
->>>>>>> 58629bfdb7236007d73cafaaeea231694dc205f7
-                </div>
-              </div>
-            </div>
-
-<<<<<<< HEAD
-
-            <div class="flex-fill" style="margin-right: 30px;">
-              <div class="card blog__slide text-center">
-                <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/image_the-biggest-mistake-ever.jpg' %}" alt="">
-                </div>
-                <div class="blog__slide__content">
-                  <h3><a href="#">{{ post.title }}</a></h3>
-                  <p>{{ post.published_at }}</p>
-=======
-            <div class="flex-fill" style="margin-right: 30px;">
-              <div class="card blog__slide text-center">
-                <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide2.png' %}" alt="">
-                </div>
-                <div class="blog__slide__content">
-                  <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                  <p>2 days ago</p>
->>>>>>> 58629bfdb7236007d73cafaaeea231694dc205f7
-                </div>
-              </div>
-            </div>
-
-<<<<<<< HEAD
-
-            <div class="flex-fill">
-              <div class="card blog__slide text-center">
-                <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/image_an-open-letter-to-bureaucrats.jpg' %}" alt="">
+                  {% if post.image_url %}
+                  <img class="card-img rounded-0" src="{{ post.image_url }}" alt="">
+                  {% else %}
+                  <img class="card-img rounded-0" src="{% static 'img/banner/blog.png' %}" alt="">
+                  {% endif %}
                 </div>
                 <div class="blog__slide__content">
                   <h3><a href="#">{{ post.title }}</a></h3>
@@ -130,22 +78,7 @@
                 </div>
               </div>
             </div>
-
-=======
-            <div class="flex-fill">
-              <div class="card blog__slide text-center">
-                <div class="blog__slide__img">
-                  <img class="card-img rounded-0" src="{% static 'img/blog/blog-slider/blog-slide3.png' %}" alt="">
-                </div>
-                <div class="blog__slide__content">
-                  <h3><a href="#">New york fashion week's continued the evolution</a></h3>
-                  <p>2 days ago</p>
-                </div>
-              </div>
-            </div>
->>>>>>> 58629bfdb7236007d73cafaaeea231694dc205f7
-          </div>
-        </div>
+            {% endfor %}
       </section>
       <!--================ Blog slider end =================-->
 
@@ -154,70 +87,27 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8">
+              {% for post in fresh_posts %}
               <div class="single-recent-blog-post">
                 <div class="thumb">
-                  <img class="img-fluid" src="{% static 'img/blog/blog1.png' %}" alt="">
+                  {% if post.image_url %}
+                  <img class="img-fluid" src="{{ post.image_url }}" alt="">
+                  {% else %}
+                  <img class="img-fluid" src="{% static 'img/banner/blog.png' %}" alt="">
+                  {% endif %}
                   <ul class="thumb-info">
-                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
+                    <li><a href="#"><i class="ti-user"></i>{{ post.author }}</a></li>
+                    <li><a href="#"><i class="ti-notepad"></i>{{ post.published_at }}</a></li>
+                    <li><a href="#"><i class="ti-themify-favicon"></i>{{ post.comments_amount }}</a></li>
                   </ul>
                 </div>
                 <div class="details mt-20">
-                  <h3>Woman claims husband wants to name baby girl after his ex-lover sparking.</h3>
-                  <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
+                  <h3>{{ post.title }}</h3>
+                  <p>{{ post.text|truncatechars:200 }}</p>
                   <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
                 </div>
               </div>
-
-              <div class="single-recent-blog-post">
-                <div class="thumb">
-                  <img class="img-fluid" src="{% static 'img/blog/blog2.png' %}" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                  <h3>Woman claims husband wants to name baby girl after his ex-lover sparking.</h3>
-                  <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                </div>
-              </div>
-
-              <div class="single-recent-blog-post">
-                <div class="thumb">
-                  <img class="img-fluid" src="{% static 'img/blog/blog3.png' %}" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                  <h3>Tourist deaths in Costa Rica jeopardize safe destination reputation all time. </h3>
-                  <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                </div>
-              </div>
-
-              <div class="single-recent-blog-post">
-                <div class="thumb">
-                  <img class="img-fluid" src="{% static 'img/blog/blog4.png' %}" alt="">
-                  <ul class="thumb-info">
-                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
-                    <li><a href="#"><i class="ti-notepad"></i>January 12,2019</a></li>
-                    <li><a href="#"><i class="ti-themify-favicon"></i>2 Comments</a></li>
-                  </ul>
-                </div>
-                <div class="details mt-20">
-                <h3>Tourist deaths in Costa Rica jeopardize safe destination reputation all time.  </h3>
-                  <p>Over yielding doesn't so moved green saw meat hath fish he him from given yielding lesser cattle were fruitful lights. Given let have, lesser their made him above gathered dominion sixth. Creeping deep said can't called second. Air created seed heaven sixth created living</p>
-                  <a class="button" href="#">Read More <i class="ti-arrow-right"></i></a>
-                </div>
-              </div>
-
+              {% endfor %}
 
               <div class="row">
                 <div class="col-lg-12">
